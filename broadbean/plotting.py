@@ -163,7 +163,8 @@ def plotter(obj_to_plot: BBObject, **forger_kwargs) -> None:
     for chanind, chan in enumerate(chans):
         for pos in range(1, seqlen+1):
             if seq[pos]['type'] == 'element':
-                wfmdata = seq[pos]['content'][1]['data'][chan]['wfm']
+                wfmdata = (seq[pos]['content'][1]
+                           ['data'][chan]['wfm'])
                 chanminmax = update_minmax(chanminmax, wfmdata, chanind)
             elif seq[pos]['type'] == 'subsequence':
                 for pos2 in seq[pos]['content'].keys():
